@@ -104,15 +104,17 @@ df.info()
 df.describe()
 ```
 
+#EDA
+
 ```bash
 sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='viridis')
 ```
-![Alt text](6.png)
+![Alt text](1.png)
 
 ```bash
 sns.countplot(x='Outcome',data=df)
 ```
-![Alt text](5.png)
+![Alt text](2.png)
 
 ```bash
 sns.histplot(df['Age'].dropna(), kde=True)
@@ -121,7 +123,7 @@ plt.ylabel('Density')
 plt.title('Distribution of Age')
 plt.show()
 ```
-![Alt text](4.png)
+![Alt text](3.png)
 
 ```bash
 df.corr()
@@ -130,28 +132,18 @@ df.corr()
 ```bash
 sns.heatmap(df.corr())
 ```
-![Alt text](1.png)
+![Alt text](4.png)
 
 ```bash
 sns.pairplot(df)
 ```
-![Alt text](2.png)
+![Alt text](6.png)
 
 ```bash
 plt.subplots(figsize=(15,15))
 sns.boxplot(x='Age', y='BMI', data=df)
 ```
-![Alt text](3.png)
-
-```bash
-x = df.drop('Outcome',axis=1)
-y = df['Outcome']
-```
-
-```bash
-from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=101)
-```
+![Alt text](acc.png)
 
 ## Modeling
 
@@ -164,9 +156,6 @@ logmodel.fit(x_train,y_train)
 ```bash
 predictions = logmodel.predict(x_test)
 ```
-
-## Evaluation
-Berdasarkan metrik evaluasi, proyek ini memberikan hasil yang positif. Model Regresi Linear yang telah dikembangkan mampu memprediksi Diabetes dengan akurasi yang baik. score yang tinggi mengindikasikan bahwa model mampu menjelaskan sebagian besar variabilitas dalam memprediksi diabetes.
 
 ```bash
 from sklearn.metrics import confusion_matrix
@@ -201,6 +190,16 @@ x_train, x_test, y_train,y_test = train_test_split(x,y , test_size = 0.2 , rando
 lr = LinearRegression()
 lr.fit(x_train,y_train)
 ```
+
+#EVALUATION
+Berdasarkan metrik evaluasi, proyek ini memberikan hasil yang positif. Model Regresi Linear yang telah dikembangkan mampu memprediksi Diabetes dengan akurasi yang baik. score yang tinggi mengindikasikan bahwa model mampu menjelaskan sebagian besar variabilitas dalam memprediksi diabetes.
+
+```bash
+from sklearn.metrics import classification_report
+predictions = logmodel.predict(x_test)
+print(classification_report(y_test,predictions))
+```
+![Alt text](acc.png)
 
 ## Deployment
 
