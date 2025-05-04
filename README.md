@@ -137,6 +137,11 @@ sns.heatmap(df.corr())
 ```bash
 sns.pairplot(df)
 ```
+![Alt text](5.png)
+
+```bash
+sns.pairplot(df)
+```
 ![Alt text](6.png)
 
 ```bash
