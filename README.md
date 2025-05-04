@@ -165,9 +165,6 @@ logmodel.fit(x_train,y_train)
 predictions = logmodel.predict(x_test)
 ```
 
-## Evaluation
-Berdasarkan metrik evaluasi, proyek ini memberikan hasil yang positif. Model Regresi Linear yang telah dikembangkan mampu memprediksi Diabetes dengan akurasi yang baik. score yang tinggi mengindikasikan bahwa model mampu menjelaskan sebagian besar variabilitas dalam memprediksi diabetes.
-
 ```bash
 from sklearn.metrics import confusion_matrix
 ```
@@ -183,10 +180,6 @@ df.head()
 ```bash
 print(x)
 ```
-### Membuat feature
-
-Setelah seluruh kolom bertipe data integer dan memiliki nama yang cukup rapih, maka kita dapat membuat fitur dari kolom-kolom tersebut.
-Feature digunakan sebagai parameter menghitung hasil estimasi/prediksi yang diharapkan. Hasil estimasi di dataset ini adalah kolom untuk membuat feature dan target dengan codingan sebgai berikut:
 
 ```bash
 x = pd.DataFrame(df, columns = ['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'])
@@ -201,6 +194,16 @@ x_train, x_test, y_train,y_test = train_test_split(x,y , test_size = 0.2 , rando
 lr = LinearRegression()
 lr.fit(x_train,y_train)
 ```
+
+#EVALUATION
+Berdasarkan metrik evaluasi, proyek ini memberikan hasil yang positif. Model Regresi Linear yang telah dikembangkan mampu memprediksi Diabetes dengan akurasi yang baik. score yang tinggi mengindikasikan bahwa model mampu menjelaskan sebagian besar variabilitas dalam memprediksi diabetes.
+
+```bash
+from sklearn.metrics import classification_report
+predictions = logmodel.predict(x_test)
+print(classification_report(y_test,predictions))
+```
+![Alt text](acc.png)
 
 ## Deployment
 
