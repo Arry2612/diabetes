@@ -177,10 +177,6 @@ df.head()
 ```bash
 print(x)
 ```
-### Membuat feature
-
-Setelah seluruh kolom bertipe data integer dan memiliki nama yang cukup rapih, maka kita dapat membuat fitur dari kolom-kolom tersebut.
-Feature digunakan sebagai parameter menghitung hasil estimasi/prediksi yang diharapkan. Hasil estimasi di dataset ini adalah kolom untuk membuat feature dan target dengan codingan sebgai berikut:
 
 ```bash
 x = pd.DataFrame(df, columns = ['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'])
